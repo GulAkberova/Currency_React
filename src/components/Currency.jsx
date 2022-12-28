@@ -44,11 +44,11 @@ const handleCurrencyChange2=(currency1)=>{
     <>
       <input
         type={"number"}
-        value={value || ""}
+        value={value}
         onChange={(e)=>handleValueChange1(e.target.value)}
         // onChange={(e) => setValue(e.target.value)}
       />
-      <select  onChange={(e)=>handleCurrencyChange1(e.target.value)}>
+      <select value={currency}  onChange={(e)=>handleCurrencyChange1(e.target.value)}>
         {Object.keys(all).map((i) => {
           return <option value={i}>{i}</option>;
         })}
@@ -56,13 +56,14 @@ const handleCurrencyChange2=(currency1)=>{
       <br />
       <input
         type={"number"}
-        value={value1 || ""}
+        value={value1}
         onChange={(e)=>handleValueChange2(e.target.value)}
 
         // onChange={(e) => setValue1(e.target.value)}
       />
       <select
       onChange={(e)=>handleCurrencyChange2(e.target.value)}
+      value={currency1}
         //  onChange={(e)=>setCurrency1(e.target.value)}
       >
         {Object.keys(all).map((i) => {
