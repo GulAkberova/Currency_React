@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useContext, useEffect } from "react";
+import Currency from "./components/Currency";
+import { currencyContext } from "./components/currencyContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  let {all, setAll,value, setValue, value1, setValue1 }=useContext(currencyContext)
+
+  useEffect(() => {
+    fetch(
+      "https://api.freecurrencyapi.com/v1/latest?apikey=eRFp8JVBUuRprAHvbCoYhUV8UP0cHQ8OhYn10wm1"
+    )
+      .then((res) => res.json())
+      .then((data) =>{
+        setAll(data.data)
+      });
+  }, []);
+ 
+ 
+
+  return(
+    <>
+    <h1>sdvfd</h1>
+   <Currency/>
+   </>
+  )
+ 
 }
 
 export default App;
