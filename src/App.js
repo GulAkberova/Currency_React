@@ -13,6 +13,9 @@ function App() {
     )
       .then((res) => res.json())
       .then((data) =>{
+        // console.log(data.data)
+        // console.log(Object.values(data.data))
+        
         setAll(data.data)
       });
   }, []);
